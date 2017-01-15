@@ -54,5 +54,10 @@ module.exports = {
   },
   entry: [
     './src/index.js'
-  ]
+  ],
+  externals: {
+    // Use external version of React
+    "react": "React",
+    "react-dom": "ReactDOM"
+  }
 };

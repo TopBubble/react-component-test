@@ -49,15 +49,15 @@ module.exports = {
       compress: {unused: true, dead_code: true, warnings: false} // eslint-disable-line camelcase
     }),
     new ExtractTextPlugin('index.css'),
-    new webpack.optimize.CommonsChunkPlugin({name: 'vendor'})
   ],
   postcss: () => [autoprefixer],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
-    filename: '[name].js'
+    filename: '[name].js',
+    libraryTarget: 'umd',
+    library: 'ReactComponentTest'
   },
   entry: {
-    app: './src/index.js',
-    vendor: Object.keys(pkg.dependencies)
+    app: './src/index.js'
   }
 };
