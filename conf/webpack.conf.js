@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const conf = require('./gulp.conf');
 const path = require('path');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -44,9 +43,6 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin({
-      template: conf.path.src('index.html')
-    }),
     new webpack.HotModuleReplacementPlugin()
   ],
   postcss: () => [autoprefixer],
@@ -61,6 +57,6 @@ module.exports = {
   entry: [
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client',
-    `./${conf.path.src('index')}`
+    './src/index.js'
   ]
 };
