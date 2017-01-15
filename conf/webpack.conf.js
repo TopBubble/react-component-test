@@ -34,7 +34,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
-          'react-hot',
           'babel'
         ]
       }
@@ -43,7 +42,6 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin()
   ],
   postcss: () => [autoprefixer],
   debug: true,
@@ -55,8 +53,6 @@ module.exports = {
     library: 'ReactComponentTest'
   },
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-hot-middleware/client',
     './src/index.js'
   ]
 };
